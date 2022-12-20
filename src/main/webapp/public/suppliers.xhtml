@@ -24,12 +24,15 @@
 
 <div class="content">
    <h:form>
+
+
+      <h2>Работники склада</h2>
    <p:dataTable var="supplier" value="#{suppliersBean.all}"
                 class="rc-table-large organizations-table" widgetVar="courseTable"
                 paginator="true" paginatorAlwaysVisible="false" rows="20" id="course-table"
                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport} {RowsPerPageDropdown}"
                 currentPageReportTemplate="{startRecord}-{endRecord} #{i18n['datatable.paginator.of']}  {totalRecords}"
-                rowsPerPageTemplate="10,20,30" lazy="true" emptyMessage="Отзывов не найдено">
+                rowsPerPageTemplate="10,20,30" lazy="true" emptyMessage="Записей не найдено">
 
       <p:column headerText="Имя">
          <h:outputText value="#{supplier.name}" escape="false"/>
@@ -42,6 +45,22 @@
       </p:column>
 
    </p:dataTable>
+ <div>
+
+    <h2>Добавить работника</h2>
+    <div style="display: flex;
+    flex-direction: column;
+    width: 20em;">
+       <h:outputText value="Введите имя работника" />
+
+       <p:inputText value="#{suppliersBean.sup_name}"/>
+
+       <p:commandLink styleClass="rc-action-button rc-inverted-button rc-button-small"
+                      id="save-btn"
+                      value="Сохранить" update="course-table" process="@form"
+                      action="#{suppliersBean.save(suppliersBean.sup_name)}"/>
+    </div>
+ </div>
    </h:form>
 </div>
 

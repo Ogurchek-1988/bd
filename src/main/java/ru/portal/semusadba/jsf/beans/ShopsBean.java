@@ -5,8 +5,9 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
+import ru.portal.semusadba.model.entity.Shops;
 import ru.portal.semusadba.model.entity.Suppliers;
-import ru.portal.semusadba.services.SuppliersServiceImpl;
+import ru.portal.semusadba.services.ShopsServiceImpl;
 
 import java.io.Serializable;
 import java.util.List;
@@ -16,26 +17,25 @@ import java.util.List;
 @Setter
 @Component
 @ConditionalOnProperty(name = "scheduling.enabled", matchIfMissing = true, havingValue = "false")
-public class SuppliersBean extends RestBean implements Serializable {
+public class ShopsBean extends RestBean implements Serializable {
 
-    private SuppliersServiceImpl suppliersService;
-    public String supName;
+    private ShopsServiceImpl shopsService;
+    public String shopName;
 
-
-    public SuppliersBean(SuppliersServiceImpl suppliersService){
-        this.suppliersService = suppliersService;
+    public ShopsBean(ShopsServiceImpl shopsService){
+        this.shopsService = shopsService;
     }
 
-    public List<Suppliers> getAll(){
-        return suppliersService.getAll();
+    public List<Shops> getAll(){
+        return shopsService.getAll();
     }
 
     public void delete(Long id){
-        suppliersService.delete(id);
+        shopsService.delete(id);
     }
 
     public void save(String name) {
-        Suppliers newSup = new Suppliers(name);
-        suppliersService.save(newSup);
+        Shops newShops = new Shops(name);
+        shopsService.save(newShops);
     }
 }

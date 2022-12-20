@@ -1,6 +1,8 @@
 package ru.portal.semusadba.model.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -8,6 +10,8 @@ import java.util.Date;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "coming")
 public class Coming {
@@ -37,4 +41,14 @@ public class Coming {
 
     @Column(name = "price")
     private int price;
+
+    public Coming(Long productId, String productName, int count, Date date, Long supplierId, Long workerId, int price){
+        this.productId = productId;
+        this.productName = productName;
+        this.count = count;
+        this.date = date;
+        this.supplierId = supplierId;
+        this.workerId = workerId;
+        this.price = price;
+    }
 }

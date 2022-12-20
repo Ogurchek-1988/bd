@@ -6,6 +6,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "workers")
 public class Workers {
 
@@ -19,4 +21,9 @@ public class Workers {
 
     @Column(name = "lastname")
     private String lastname;
+
+    public Workers(String firstname, String lastname){
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
 }

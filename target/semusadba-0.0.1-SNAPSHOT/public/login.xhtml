@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<ui:composition template="/resources/template/public-template.xhtml"
+    xmlns="http://www.w3c.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:define name="title">${i18n['page-title.login']}</ui:define>
+    
+    <ui:define name="content">
+        <div class="content login">
+            <h:form prependId="false">
+
+                <p:panelGrid columns="1" styleClass="ui-fluid center ui-noborder">
+                    <h2>Please login</h2>
+
+                    <p:outputLabel value="Login failed!" styleClass="red"
+                                   rendered="${!empty param['error']}" />
+
+                    <p:inputText id="username" placeholder="User name" />
+                    <p:password id="password" placeholder="Password" />
+
+                    <p:commandButton value="Login" ajax="false" />
+                </p:panelGrid>
+
+            </h:form>
+        </div>
+<!--        <div class="content login">-->
+<!--            <h:form prependId="false" class="login-form" style="max-width: 20em; margin: auto;">-->
+<!--                <p:outputPanel>-->
+<!--                    <p:outputLabel for="username" value="#{i18n['login.login']}: " />-->
+<!--                    <p:inputText id="username" value="#{authBean.login}"/>-->
+
+<!--                    <p:outputLabel for="password" value="#{i18n['login.password']}: " />-->
+<!--                    <p:password id="password" value='#{authBean.password}'/>-->
+<!--                </p:outputPanel>-->
+
+<!--                <p:commandButton value="#{i18n['login.do']}" ajax="false" icon="ui-icon-check" class="rc-action-button"/>-->
+<!--            </h:form>-->
+<!--        </div>-->
+
+    </ui:define>
+</ui:composition>

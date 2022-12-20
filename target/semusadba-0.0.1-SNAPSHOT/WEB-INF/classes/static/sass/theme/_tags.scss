@@ -1,0 +1,55 @@
+/*
+    Created on : 2.12.2021, 16:53
+    Author     : ninomt
+    Description: Styles for tags
+*/
+
+.tags {
+  .rc-tag {
+    display: inline-flex;
+    align-items: center;
+    background: $altColor6;
+    font-size: 0.75em;
+    color: $textColor;
+    @include border-radius(2.5rem);
+    padding: 0.375rem 0.75rem;
+
+    &:before {
+      font-family: $iconsFontFamily;
+      font-size: 0.65rem;
+      color: $textColor;
+      padding-right: 0.3rem;
+    }
+
+    &.date:before {
+      content: "\f073";
+    }
+
+    &.time:before {
+      content: "\f017";
+    }
+
+    &.rating {
+      background: rgba($altColor5, 0.12);
+
+      &:before {
+        content: "\e91B";
+        font-family: $rcIconsFontFamily;
+        color: $altColor5;
+      }
+    }
+
+    &.user:before {
+      content: "\f007";
+    }
+
+    &.course:before {
+
+    }
+
+    &.university:before {
+      content: "\e921";
+      font-family: $rcIconsFontFamily;
+    }
+  }
+}

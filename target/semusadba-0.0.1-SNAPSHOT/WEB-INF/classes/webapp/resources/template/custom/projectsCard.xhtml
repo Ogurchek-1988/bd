@@ -1,0 +1,70 @@
+<f:view xmlns="http://www.w3c.org/1999/xhtml" xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:p="http://primefaces.org/ui"
+        xmlns:custom="http://xmlns.jcp.org/jsf/composite/custom"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+>
+    <composite:interface>
+        <composite:attribute
+                name="resource"
+                type="ru.edu.portfolio.model.coursemanagement.recommendedresources.recommendedresource.entity.RecommendedResource"
+                required="true"
+        />
+    </composite:interface>
+    <composite:implementation>
+        <div class="rc-card card course-card recres-card">
+            <div class="logo logo-flex" >
+                <p:graphicImage value="#{recommendedResourcesBean.image(cc.attrs.resource)}"
+                                rendered="#{cc.attrs.resource.image != null}" styleClass="fit-logo"
+                                alt="#{cc.attrs.resource.resourceName}" stream="false"/>
+
+
+                <div class="card-actions">
+                    <p:outputPanel rendered="#{authBean.loggedIn}" id="favorites-panel" class="favorites-panel">
+                        <object type="wrapper" style="display: block;">
+                            <p:commandLink update="favorites-panel" title="Добавить в избранное" class="favorites-button"
+                                           actionListener="#{favoritesManagementBean.addResourceToFavorite(cc.attrs.resource.id)}"
+                                           rendered="#{!favoritesManagementBean.inFavoriteResource(cc.attrs.resource.id)}">
+                                <span class="favorites-icon"/>
+                            </p:commandLink>
+                            <p:commandLink update="favorites-panel" title="Добавить в избранное" class="favorites-button"
+                                           actionListener="#{favoritesManagementBean.removeResourceFromFavorite(cc.attrs.resource.id)}"
+                                           rendered="#{favoritesManagementBean.inFavoriteResource(cc.attrs.resource.id)}">
+                                <span class="favorites-icon active"/>
+                            </p:commandLink>
+                        </object>
+                    </p:outputPanel>
+                </div>
+            </div>
+
+            <p:outputPanel class="course-name">
+                <object type="wrapper" style="display: block;">
+                    <h:outputLink value="#{navBean.getRecommendedResourceURL(cc.attrs.resource.id)}">
+                        <h:outputText value="${cc.attrs.resource.resourceName}" title="${cc.attrs.resource.resourceName}"/>
+                    </h:outputLink>
+                </object>
+            </p:outputPanel>
+
+            <p:outputPanel class="university-name">
+                <div class="label">Организация</div>
+                <object type="wrapper" style="display: block;">
+                    <h:outputLink class="value" value="#{cc.attrs.resource.url}">
+                        <h:outputText value="${cc.attrs.resource.juridicalOrganization}"
+                                      title="${cc.attrs.resource.juridicalOrganization}"/>
+                    </h:outputLink>
+                </object>
+            </p:outputPanel>
+
+            <!-- clip long text and add "..." -->
+            <script type="text/javascript">
+                var courseName = $(".card.course-card .course-name").last();
+                var universityName = $(".card.course-card .university-name").last();
+                clipText(courseName.get(0), courseName.find("a span").get(0));
+                clipText(universityName.get(0), universityName.find("a span").get(0));
+            </script>
+
+            <composite:insertChildren/>
+
+        </div>
+    </composite:implementation>
+</f:view>

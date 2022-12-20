@@ -1,0 +1,62 @@
+.ui-fileupload {
+    .ui-fileupload-buttonbar {
+        @extend .rc-action-button;
+        padding-top: 0 !important;
+    }
+
+}
+
+/* File uploader */
+
+.rc-theme .ui-fileupload {
+    .ui-fileupload-buttonbar {
+        @extend %rc-button-inside;
+        padding: 0;
+        border: none;
+        padding-top: 0;
+        background: none;
+
+        .ui-button.ui-state-default {
+            .ui-button-text {
+                display: inline-block; /* not hide upload button on small wide */
+                padding: 0;
+            }
+
+            .ui-icon-plusthick {
+                display: none;
+            }
+        }
+    }
+    
+    &.hidden-files {
+        .ui-fileupload-content {
+            display: none;
+        }
+
+        .ui-fileupload-buttonbar {
+            box-shadow: none;
+
+            &:hover {
+                background: inherit;
+                cursor: inherit;
+            }
+        }
+
+        .ui-fileupload-choose {
+            margin: 0;
+        }
+    }
+}
+
+.rc-theme .ui-fileupload-simple {
+    @extend %rc-button-inside;
+
+    .ui-button.ui-state-default {
+        .ui-button-text {
+            padding: 0;
+        }
+        .ui-icon-plusthick {
+            display: none;
+        }
+    }
+}

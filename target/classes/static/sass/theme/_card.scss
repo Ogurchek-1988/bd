@@ -1,0 +1,545 @@
+/*
+    Created on : 30.11.2021, 18:52
+    Author     : ninomt
+    Description: Styles for card
+*/
+
+/* Card structure
+ *
+ * .rc-card
+ *  .logo
+ *    .start-date
+ *    .favorite-logo
+ *    .platform-logo
+ *  .card-title
+ *    .label
+ *    .value
+ *  .tags
+ *    .rc-tag
+*/
+
+/* Card variables */
+
+$cardWidth:          16rem;
+$cardHeight:         24rem;
+$cardBorderRadius:   0.75rem; /* 12px */
+$cardBgColor:        #FFFFFF;
+
+.rc-card-link {
+    &, &:hover {
+        text-decoration: none;
+    }
+}
+
+.rc-card {
+    width: $cardWidth;
+    min-height: $cardHeight;
+    border: 1px solid $grayColor6;
+    padding: 0em;
+    margin: 1em 1em 1em 0em;
+    background: $cardBgColor;
+    color: $textColor;
+    line-height: 1;
+    text-align: left;
+
+    display: inline-block; /* if flex not supported */
+    vertical-align: top;   /* if flex not supported */
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    word-wrap: break-word;
+
+    @include border-radius($cardBorderRadius);
+    /*box-shadow: 0px 0px 3px rgba(40, 75, 123, 0.25);*/
+    @include transition(box-shadow 0.3s);
+
+    &:hover {
+        box-shadow: 0px 2px 15px -4px rgba(40, 75, 123, 0.3);
+    }
+
+    a {
+        color: $textColor;
+        text-decoration: none;
+        @include transition(color 0.2s);
+
+        &:hover {
+            color: $linkColorHover;
+            text-decoration: none;
+        }
+    }
+
+    & > a {
+        min-height: $cardHeight;
+        display: block;
+        text-decoration: none;
+        /*overflow: auto;  to prevent collapsing margins*/
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    /* platform logo */
+
+    .platform-logo {
+        width: 4rem;
+        height: 4rem;
+        background: #FFFFFF;
+        box-shadow: 0px 1px 40px rgba(40, 75, 123, 0.1);
+        @include border-radius(8px);
+        border: 1px solid $grayColor6;
+        position: absolute;
+        overflow: hidden;
+        bottom: -1rem;
+        left: 1rem;
+        display: flex;
+        align-items: center;
+
+        a {
+            background-image: url(/images/platform-logo.png);
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            background: #fff; /* fix for logos with transparency background */
+        }
+    }
+
+    /* card title */
+
+    .card-title {
+        padding: 0px 1rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        overflow: hidden;
+        position: relative;
+        height: 4.8em;
+        font-weight: bold;
+        display: block;
+
+        a {
+            color: $textColor;
+        }
+    }
+
+    /* favorite icon */
+
+    .favorite-logo {
+        width: 2rem;
+        height: 1.5rem;
+        position: absolute;
+        top: 0.4rem;
+        right: 1rem;
+        display: flex;
+        align-items: center;
+
+        a {
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-size: contain;
+        }
+
+        img {
+            width: 2.5rem;
+            height: 3rem;
+            object-fit: contain;
+        }
+    }
+
+    /* text fields */
+    .label, .value {
+        display: block;
+        padding: 0px 1rem;
+    }
+    .label {
+        color: $textColorAlt;
+        font-size: 0.75rem;
+        margin-bottom: 0.4rem;
+    }
+    .value {
+        font-size: 0.875rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Cut the lines */
+    .line-1 {
+        @include hide-text-overflow(1, 1.2rem);
+    }
+    .line-2 {
+        @include hide-text-overflow(2, 1.2rem);
+    }
+    .line-3 {.mr-table-cel.mobile-details {overflow: visible;}
+             @include hide-text-overflow(3, 1.2rem);
+    }
+    .line-4 {
+        @include hide-text-overflow(4, 1.2rem);
+    }
+    .line-5 {
+        @include hide-text-overflow(5, 1.2rem);
+    }
+    .line-6 {
+        @include hide-text-overflow(6, 1.2rem);
+    }
+
+    /* tags */
+    .tags {
+        padding: 0.4rem 1rem !important;
+        text-align: right;
+    }
+
+    .comparison-panel, .favorites-panel {
+        width: 2rem;
+        height: 2rem;
+        position: absolute;
+        top: 0.9rem;
+        right: 1rem;
+        display: flex;
+        align-items: center;
+    }
+    .comparison-panel {
+        right: 3.5rem;
+    }
+
+    .card-actions {
+        position: absolute;
+        top: 0.9rem;
+        right: 1rem;
+        display: flex;
+        align-items: center;
+
+        .comparison-panel, .favorites-panel {
+            position: static;
+            margin-left: 0.5rem;
+        }
+    }
+
+    .comparison-button, .favorites-button {
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        color: $textColor;
+        background: #FFF;
+        border: 1px solid $grayColor5;
+        box-sizing: border-box;
+        border-radius: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: color 0.2s ease-in-out;
+
+        &:hover {
+            text-decoration: none;
+            color: $mainColor;
+        }
+    }
+
+    .comparison-icon, .favorites-icon {
+        &:before {
+            content: "\E962";
+            font-family: $rcIconsFontFamily;
+            font-size: 1.5rem;
+            display: block;
+        }
+        &.active:before {
+            color: $mainColor;
+        }
+    }
+    .favorites-icon {
+        &:before {
+            content: "\E93E";
+        }
+        &.active:before {
+            color: $mainColor;
+            content: "\E963";
+        }
+    }
+
+    .rc-card-footer {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        .rc-card-footer-wrapper {
+            display: flex;
+            padding: 1rem 0;
+            margin: 0.5rem 1rem 0;
+            border-top: 1px solid $grayColor6;
+
+            .start-date,
+            .university,
+            .rating,
+            .listeners {
+                font-size: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+
+                &:before {
+                    font-family: "rc-icons";
+                    font-size: 19px;
+                    margin-right: 0.25em;
+                }
+            }
+
+            .start-date {
+                flex-basis: 9rem;
+                flex-grow: 1;
+
+                &:before {
+                    content: "\E94F";
+                }
+            }
+            .university {
+                flex-basis: 3rem;
+
+                &:before {
+                    content: "\E921";
+                }
+            }
+            .rating {
+                flex-basis: 3rem;
+                justify-content: flex-end;
+
+                &:before {
+                    content: "\E955";
+                    color: $altColor5;
+                }
+            }
+            .listeners {
+                flex-basis: 3rem;
+
+                &:before {
+                    content: "\E92E";
+                }
+            }
+        }
+    }
+}
+
+/* Cards layout */
+
+@include media-breakpoint-down(sm) {
+    .rc-card-link {
+        display: block;
+        width: 100%;
+    }
+    .rc-card {
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+    }
+}
+
+@include media-breakpoint-only(md) {
+    .rc-card-link:nth-of-type(2n) .rc-card, .rc-card:nth-of-type(2n) {
+        margin-right: 0;
+    }
+    .rc-card {
+        margin-right: 10.625rem;
+    }
+}
+
+@include media-breakpoint-only(lg) {
+    .rc-card-link:nth-of-type(3n) .rc-card, .rc-card:nth-of-type(3n) {
+        margin-right: 0;
+    }
+    .rc-card {
+        margin-right: 4.5rem;
+    }
+}
+
+@include media-breakpoint-only(xl) {
+    .rc-card-link:nth-of-type(4n) .rc-card, .rc-card:nth-of-type(4n) {
+        margin-right: 0;
+    }
+    .rc-card {
+        margin-right: 1.5rem;
+    }
+}
+@include media-breakpoint-only(xxl) {
+    .rc-card-link:nth-of-type(5n) .rc-card {
+        margin-right: 0;
+    }
+    .rc-card:nth-of-type(5n) {
+        margin-right: 0;
+    }
+}
+
+/* ----- Course ----- */
+
+.rc-card.course-card {
+    .logo {
+        background-size: cover;
+        background-position: center;
+        height: 9em;
+        margin-bottom: 2rem;
+        position: relative;
+        border-bottom: 1px solid $grayColor6;
+        background-image: url('/images/card-bg.png'); /* default */
+    }
+}
+
+/* ----- Additional edu program ----- */
+
+.rc-card.dpo-card {
+    @extend .course-card;
+}
+
+/* ----- Platform ----- */
+
+.rc-card.platform-card {
+    min-height: 26rem;
+
+    .logo {
+        height: 9em;
+        margin-bottom: 2rem;
+        position: relative;
+        border-bottom: 1px solid $grayColor6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 8em;
+            height: 8em;
+            border-radius: 2px;
+            object-fit: contain;
+        }
+    }
+}
+
+/* University */
+.rc-card.university-card {
+    @extend .platform-card;
+}
+
+/* Empoyer */
+.rc-card.employer-card {
+    @extend .platform-card;
+}
+
+/* Expert */
+.rc-card.expert-card {
+
+}
+
+/* CV */
+.rc-card.cv-card {
+
+}
+
+/* Education */
+.rc-card.education-card {    
+    .card-title {
+        margin-top: 20px;
+
+        .label {
+            display: inline;
+            padding: 0;
+            font-size: inherit;
+        }
+    }
+
+    .verified-text {
+        border: 1px solid $grayColor2;
+        padding: 8px 48px;
+        color: $grayColor2;
+        margin: 1rem;
+        font-size: 0.9em;
+        border-radius: 4px;
+        text-align: center;
+        line-height: normal;
+    }
+
+    .rc-action-button {
+        width: 100%;
+        display: block;
+        text-align: center;
+    }
+}
+
+/* Career */
+.rc-card.career-card {
+    @extend .education-card;
+
+    min-height: 15rem;
+}
+
+/* Activity */
+.rc-card.activity-card {
+    @extend .education-card;
+
+    min-height: 15rem;
+}
+
+/* CV */
+
+.rc-card.cv-card {
+    .logo {
+        height: 10.5em;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid $grayColor6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .cv-photo {
+            width: 8.5rem;
+            height: 8.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+}
+
+/* Vacancy */
+.rc-card.vacancy-card {
+    @extend .education-card;
+
+    min-height: 15rem;
+}
+
+/* Recommended resourses */
+.rc-card.recres-card {
+
+}
+
+/* ----- News ----- */
+.rc-card.news-card {
+    box-shadow: none;
+    border: 0 none;
+    background-color: transparent;
+
+    .logo {
+        background-size: cover;
+        background-position: center;
+        height: 11em;
+        margin-bottom: 2rem;
+        position: relative;
+        border-radius: $cardBorderRadius;
+        background-image: url('/images/card-bg.png'); /* default */
+    }
+
+    .card-title, .label, .value {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

@@ -1,0 +1,23 @@
+
+#page-content .content .login-form {
+    max-width: 30em;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 40px;
+    
+    .ui-outputlabel {
+        text-align: left;
+        display: block;
+        margin: 15px 0px 10px;
+    }
+    
+    .ui-inputfield {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .rc-action-button {
+        width: 100%;
+        margin-top: 40px;
+    }
+}

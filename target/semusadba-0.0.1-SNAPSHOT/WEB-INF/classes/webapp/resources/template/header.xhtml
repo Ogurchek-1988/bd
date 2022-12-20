@@ -1,0 +1,86 @@
+<ui:composition
+    xmlns="http://www.w3c.org/1999/xhtml"
+    xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+    <div class="header">
+        <div class="top-nav">
+            <div class="content d-flex align-items-center py-2 header-margin" >
+
+                <div id="rc-logo">
+                    <a href="/">
+                        <picture>
+                            <img src="/images/semusadba/promo-logo-banner.png" alt="#{i18n['portal.title']}"/>
+                        </picture>
+                    </a>
+                    <h:outputText value="WireHouse.com" style="color: #63b175"/>
+                </div>
+
+                <h:form class="main-menu d-none d-xl-flex justify-content-end" rendered="#{not empty navBean.defaultModel.elements}">
+                    <p:menubar class="navigation pages"
+                               model="#{navBean.defaultModel}"/>
+                </h:form>
+
+                <ui:remove>
+                    <div>
+                        <a href="#">Меню <i class="fa fa-angle-up"></i></a>
+                    </div>
+                </ui:remove>
+
+
+<!--                <h:form class="login" rendered="#{authBean.user eq null}">-->
+<!--                    <h:outputLink value="#{navBean.goToLogin()}">-->
+<!--                        #{i18n['navigation.root.login']}-->
+<!--                    </h:outputLink>-->
+<!--                </h:form>-->
+<!--                <h:form class="chaity" rendered="#{authBean.user eq null}">-->
+<!--                    <h:outputLink value="#{navBean.goToDonate()}">-->
+<!--                        #{i18n['navigation.root.charity']}-->
+<!--                    </h:outputLink>-->
+<!--                </h:form>-->
+
+                <h:form>
+                    <p:outputPanel id="menuBtn">
+
+                <div id="menu-switcher" class="d-inline-block d-xl-none">
+                    <span class="fa-bars"/>
+                </div>
+                    </p:outputPanel>
+
+                    <p:overlayPanel for="menuBtn" class="user-dropdown-menu">
+                        <div class="main-menu-mobile d-xl-none">
+                            <p:menubar class="navigation pages icons"
+                                       model="#{navBean.allModel}"/>
+                        </div>
+
+                        <p:separator class="d-xl-none"/>
+
+                        <h:outputLink class="dropdown-menu-link" value="#{navBean.goToLogin()}">
+                            <h:outputText value="#{i18n['navigation.messages']}"/>
+                        </h:outputLink>
+                    </p:overlayPanel>
+
+                </h:form>
+
+                <div class="bvi-button text-center search-form-mobile">
+                    <a href="#" class="bvi-panel-open bvi-panel-open-menu">
+                        <div class="bvi-eye bvi-color">
+                            <i class="bvi-black-on-white-color-reverted bvi-white-on-blue-color-reverted bvi-white-on-black-color-reverted"/>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+<!--        <div class="content pt-3 pb-0" rendered="#{not empty navBean.currentRoleModel.elements}">-->
+<!--            <h:form class="main-menu pb-3 d-none d-xl-block" rendered="#{not empty navBean.currentRoleModel.elements}">-->
+<!--                <p:menubar class="navigation pages icons #{(navBean.currentRoleModel.elements.size() lt 8) ? 'short-menu' : ''}"-->
+<!--                           model="#{navBean.currentRoleModel}"/>-->
+<!--            </h:form>-->
+<!--        </div>-->
+
+    </div>
+</ui:composition>

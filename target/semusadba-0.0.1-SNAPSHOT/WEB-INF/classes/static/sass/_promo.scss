@@ -1,0 +1,58 @@
+// TODO: remove this file
+
+// Login page
+
+#page-content .content .login-form {
+    max-width: 30em;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 40px;
+
+    .ui-outputlabel {
+        text-align: left;
+        display: block;
+        margin: 15px 0px 10px;
+    }
+
+    .ui-inputfield {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .rc-action-button {
+        width: 100%;
+        margin-top: 40px;
+    }
+}
+
+.carousel {
+    border: 0 none;
+    position: relative;
+
+    .ui-widget-content {
+        border: 0 none;
+    }
+}
+
+.carousel-item {
+    display: none;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin: 0;
+    position: relative;
+
+    .ui-widget-content {
+        border: 0 none;
+    }
+}
+
+
+@media screen and (max-width: 98rem) {
+    .slick-next {
+        right: 2rem;
+    }
+
+    .slick-prev {
+        left: 2rem;
+    }
+}

@@ -1,0 +1,52 @@
+/* Breadcrumbs */
+
+.rc-theme .ui-breadcrumb {
+    background: transparent;
+    border: 0px none;
+    font-size: 0.75rem;
+    line-height: 1;
+    color: $textColor;
+
+    li {
+        display: inline-block;
+        float: none;
+    }
+
+    ul li .ui-menuitem-link,
+    ul li a .ui-menuitem-text {
+        color: $textColor;
+        font-family: $fontFamily;
+        font-weight: 400;
+        text-decoration: none;
+    }
+
+    ul li .ui-menuitem-link {
+        margin-top: 1px;
+    }
+
+    ul li a.ui-icon-home {
+        background-image: none;
+        text-indent: 0px;
+        width: auto;
+        height: auto;
+
+        .ui-menuitem-text:before {
+            display: none;
+        }
+    }
+    
+    .ui-breadcrumb-chevron {
+        background: none;
+        text-indent: initial;
+        width: auto;
+        height: auto;
+        vertical-align: baseline;
+        font-size: 10px;
+        margin: 0 0.5rem;
+        
+        &:before {
+            font-family: "rc-icons";
+            content: "\E958";
+        }
+    }
+}

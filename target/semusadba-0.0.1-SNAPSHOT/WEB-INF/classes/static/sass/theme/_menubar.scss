@@ -1,0 +1,34 @@
+/* 
+    Created on : 25.11.2021
+    Author     : ninomt
+    Description : Styles for p:menubar
+*/
+
+.rc-theme {
+    .ui-menubar {
+        display: flex;
+        padding: 0;
+        margin: 0;
+        border: 0 none;
+
+        .ui-menu-list {
+            display: flex;
+        }
+        
+        .ui-menuitem {
+            float: none;
+
+            .ui-menuitem-link {
+                transition: color 0.2s ease-in-out;
+                padding: 0.5rem 0.75rem;
+                color: $grayColor3;
+
+                &.ui-state-hover, &:hover {
+                    background: none;
+                    color: $mainColor100;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}

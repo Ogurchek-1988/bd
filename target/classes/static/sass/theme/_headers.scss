@@ -1,0 +1,87 @@
+/* Headers */
+
+h1 {
+    font-size: 1.8em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $mainColor100;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin: 1.2em 0 0.8em;
+}
+
+h3 {
+    font-size: 1.3em;
+    font-weight: 500;
+    margin: 1.2em 0 0.8em;
+}
+
+h4 {
+    font-size: 1.2em;
+    font-weight: 500;
+    margin: 1.2em 0 0.8em;
+}
+
+.rc-theme .page-header {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin: 0 0 1.5em;
+}
+
+.rc-theme .content {
+    & > h1, & > h2 {
+        margin-top: 0;
+    }
+}
+
+/* Links */
+
+.rc-theme a {
+    color: $linkColor;
+
+    &:active,
+    &:hover,
+    &:focus,
+    &:focus:active,
+    &:hover:active {
+        outline: 0;
+    }
+}
+
+/* Labels */
+
+.rc-theme .ui-outputlabel {
+    color: #333;
+    text-align: right;
+    font-family: $fontFamily;
+    font-weight: 400;
+}
+
+/* ----- PrimeFaces Components ----- */
+
+.rc-marked-header {
+    padding: 0 3em;
+    margin: 0em 0em 1em 0em;
+    position: relative;
+    padding-left: 1.5em;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    vertical-align: middle;
+
+    &:before {
+        content: '';
+        height: 0.4em;
+        width: 0.4em;
+        top: 0.9em;
+        left: -1.5em;
+        display: block;
+        position: relative;
+        background: none;
+        box-sizing: border-box;
+        border: 0.3em solid transparent;
+        border-left: 0.4em solid $mainColor100;
+    }
+}

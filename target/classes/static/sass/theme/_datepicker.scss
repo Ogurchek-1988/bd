@@ -1,0 +1,40 @@
+/* DatePicker */
+
+#ui-datepicker-div, .ui-datepicker {
+  position: absolute !important; /* position bug fix for dialogs */
+  background: #fff;
+
+  .ui-datepicker-header {
+    border-color: $mainColor100;
+    border-bottom-color: #ccc;
+  }
+
+  .ui-datepicker-calendar {
+    .ui-datepicker-other-month {
+      background: #aaa;
+    }
+
+    th {
+      color: #fff !important;
+    }
+
+    .ui-datepicker-today .ui-state-highlight {
+      background: $mainColor60;
+      color: #fff;
+    }
+
+    td .ui-state-default {
+      background: #fff;
+
+      &.ui-state-hover {
+        background: $mainColor40;
+        color: #fff;
+      }
+
+      &.ui-state-active {
+        background: $mainColor100 !important;
+        color: #fff;
+      }
+    }
+  }
+}

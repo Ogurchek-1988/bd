@@ -1,0 +1,259 @@
+/* 
+    Created on  : 17.12.2018, 15:57:16
+    Author      : ninomt
+    Description : Styles for general page layout
+*/
+
+/*  Page structure:
+ *
+ *  #[public|private]-layout-container
+ *    #top-level-message
+ *    #header
+ *      #rc-logo
+ *    #page-content
+ *      #side-menu
+ *      .subnav
+ *      .content
+ *      [.content] // any number of items
+ *    #footer
+ */
+
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    font-weight: 400;
+}
+
+#public-layout-container {
+    min-height: 100vh;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    
+    #top-level-message {
+    }
+
+    #header {
+        .top-nav {
+            #rc-logo {
+                
+            }
+            
+            .main-menu {
+                flex-grow: 1;
+            }
+        }
+    }
+
+    #page-content {
+        flex-grow: 1;
+        position: relative;
+        /*min-height: calc(100vh - #{$header-height});*/
+    }
+
+    .subnav {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        overflow: hidden; // for float buttons
+    }
+
+    .content {
+        @extend .container;
+        
+        padding-top: $contentPaddingTop;
+        padding-bottom: $contentPaddingBottom;
+        
+        .add-vertical-paddings {
+            padding-top: $contentPaddingTop;
+            padding-bottom: $contentPaddingBottom;
+        }
+        
+        &.remove-vertical-paddings, .remove-vertical-paddings {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+    
+    .wide-content {
+        @extend .container-fluid;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    #footer-class {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    #toTop {
+        position: fixed;
+        z-index: 100000;
+        bottom: 45px;
+        right: 30px;
+        min-height: 30px;
+        text-align: right;
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #toTop{
+        display: none !important;
+    }
+
+}
+
+/*#private-layout-container {
+    .content .content-paddings, .content, .subnav {
+        padding-left: $privateContentPaddingLeft;
+        padding-right: $privateContentPaddingRight;
+    }
+
+    #footer {
+        padding-left: $privateContentPaddingRight;
+        padding-right: $privateContentPaddingRight;
+    }
+}*/
+
+#public-layout-container {
+    .content .content-paddings, .content, .subnav, #footer {
+/*        padding-left: $publicContentPaddingLeft;
+        padding-right: $publicContentPaddingRight;*/
+    }
+    
+    .carousel-content-paddings {
+/*        padding-left: $carouselPaddingLeft;
+        padding-right: $carouselPaddingRight;*/
+        padding-top: 6rem;
+        padding-bottom: 10rem;
+    }
+}
+
+/* ----- Layouts ------ */
+
+/* Two column layout */
+
+
+.rc-two-column-container {
+    display: flex;
+    clear: both;
+    padding-top: 2em;
+    margin-bottom: 3.5em;
+    border-top: 0px none;
+
+    & + & {
+        border-top: 1px dashed #aaa; 
+    }
+
+    .rc-left-pane {
+        display: inline-block;
+        flex-grow: 0;
+        flex-shrink: 0;
+        flex-basis: 25%;
+        margin-right: 3em;
+    }
+
+    .rc-right-pane {
+        display: inline-block;
+        flex-grow: 1;
+        min-width: 0;
+    }
+}
+
+
+/* Media rules */
+
+/*@media screen and (max-width: 98rem) {
+    #private-layout-container {
+        .content .content-paddings, .content, .subnav {
+            padding-left: $contentPaddingLeft;
+            padding-right: $contentPaddingRight;
+        }
+        
+        .carousel-content-paddings {
+            padding-left: $carouselPaddingLeft;
+            padding-right: $carouselPaddingRight;
+        }
+
+        #footer {
+            padding-left: $contentPaddingLeft;
+            padding-right: $contentPaddingRight;
+        }
+        
+        #side-menu {
+            left: 0;
+        }
+    }
+
+    #public-layout-container {
+        .content .content-paddings, .content, .subnav, #footer, .carousel-content-paddings {
+            padding-left: $contentPaddingRight;
+            padding-right: $contentPaddingRight;
+        }
+    }
+}*/
+
+
+/* Layout for cards */
+
+/*.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 16rem);
+    grid-gap: 2rem;
+    justify-content: space-between;
+
+    .card {
+        width: 100%;
+        margin: 0;
+    }
+}
+*/
+@include media-breakpoint-down(lg) {
+    .rc-two-column-container {
+        padding-top: 0;
+        flex-wrap: wrap;
+    }
+    .rc-two-column-container + .rc-two-column-container {
+        padding-top: 2em;
+    }
+
+    .rc-two-column-container .rc-left-pane,
+    .rc-two-column-container .rc-right-pane {
+        flex-basis: 100%;
+        margin-right: 0;
+    }
+}
+
+@include media-breakpoint-down(xs) {
+    .rc-theme {
+        .cards-container {
+            text-align: center;
+            
+            .card {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    .subnav .ui-selectonebutton.ui-buttonset {
+        display: flex;
+        flex-direction: column;
+        .ui-button.ui-widget.ui-state-default {
+            padding: 0;
+            width: 100%;
+            text-align: left;
+            margin-bottom: 0.3rem;
+
+            .ui-button-text.ui-c {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+            }
+        }
+    }
+}

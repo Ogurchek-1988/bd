@@ -1,0 +1,72 @@
+/* 
+    Created on : 17.12.2018, 17:54:40
+    Author     : ninomt
+*/
+
+#footer-class {
+    overflow: hidden; /* fix for margins outside of footer */
+    background: #63b175;
+    z-index: 1;
+
+    a {
+        color: #fff;
+        text-decoration: none;
+        
+        &:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+    }
+
+    .footer-short {
+        box-sizing: border-box;
+        color: #fff;
+        position: relative;
+
+        a {
+            font-size: 0.875rem;
+            line-height: 2rem;
+        }
+
+        .contacts a {
+            font-size: 1.25rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .social-buttons a {
+            width: 30px;
+            height: 30px;
+            margin-top: 0.5rem;
+            color: #1a3b9a;
+            background: #FFF;
+            border-radius: 8px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            margin-right: 0.875rem;
+        }
+    }
+
+    .copyright-container {
+        color: #fff;
+        border-top: 1px solid rgba(255,255,255,0.5);
+        margin-top: 0.875rem;
+        padding-top: 0.875rem;
+    }
+}
+.icon-vk:before{
+    color: #207332;
+}
+.icon-odnoklassniki:before{
+    color: #207332;
+}
+.icon-facebook-f:before{
+    color: #207332;
+}
+@media (max-width: 425px){
+    .sem-logo img {
+        width: 100%;
+    }
+}

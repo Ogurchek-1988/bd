@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+              version="2.2">
+
+    <application>
+        <el-resolver>
+            org.springframework.web.jsf.el.SpringBeanFacesELResolver
+        </el-resolver>
+        <resource-bundle>
+            <base-name>ru.edu.portfolio.i18n.Messages</base-name>
+            <var>i18n</var>
+        </resource-bundle>
+        <message-bundle>ru.edu.portfolio.i18n.faces-messages</message-bundle>
+    </application>
+
+    <factory>
+        <exception-handler-factory>
+            ru.portal.semusadba.jsf.JsfExceptionHandlerFactory
+        </exception-handler-factory>
+    </factory>
+
+</faces-config>

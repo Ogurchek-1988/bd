@@ -1,0 +1,8 @@
+@mixin hide-text-overflow($linesCount, $lineHeight) {
+  display: -webkit-box;
+  -webkit-line-clamp: $linesCount;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: $lineHeight;
+  height: $linesCount * $lineHeight;
+}

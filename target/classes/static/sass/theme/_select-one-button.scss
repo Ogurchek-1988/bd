@@ -1,0 +1,63 @@
+/* Select one button */
+
+/* Select one (toggle) button */
+
+.rc-theme .ui-selectonebutton {
+    @extend %rc-button-inside;
+    
+    .ui-button, 
+    .ui-button.ui-state-default, 
+    button.ui-button.ui-state-default {
+        padding: 12px 24px;
+        font-size: 14px;
+        border-radius: 40px;
+        color: $mainColor;
+        background: #FFF;
+        box-sizing: border-box;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+
+        &.ui-corner-left {
+            border-top-right-radius: 40px;
+            border-bottom-right-radius: 40px;
+        }
+        &.ui-corner-right {
+            border-top-left-radius: 40px;
+            border-bottom-left-radius: 40px;
+        }
+
+        &.ui-state-hover {
+            outline: 1px solid $mainColor;
+            outline-offset: -2px;
+            color: $mainColor;
+            background: #FFF;
+        }
+        &.ui-state-focus {
+            
+        }
+        &.ui-state-active {
+            background: $mainColor;
+            color: #FFF;
+            box-shadow: none;
+            
+            &.ui-state-hover {
+                background-color: $mainColorHover;
+                border-color: $mainColorHover;
+            }
+        }
+        &.ui-state-disabled {
+            background: $grayColor7;
+            border-color: $grayColor5;
+            color: $grayColor5;
+            outline: 0 none transparent;
+        }
+        
+        input {
+            display: none;
+        }
+
+        .ui-button-text {
+            padding: 0;
+        }
+    }
+}

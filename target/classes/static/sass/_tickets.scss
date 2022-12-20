@@ -1,0 +1,201 @@
+
+
+.ticket-view-main {
+    display: flex;
+
+    section {
+        width: calc(100% / 4 * 3);
+        padding-right: 4rem;
+        box-sizing: border-box;
+    }
+
+    aside {
+        width: calc(100% / 4 * 1);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .course-card {
+            margin: 0 0 0.5em;
+        }
+
+        .ticket-actions {
+            display: flex;
+            flex-direction: column;
+            button {
+                margin: 10px 0;
+            }
+        }
+    }
+}
+
+.ticket-header-form {
+}
+
+
+.tickets-table {
+    table, thead, tbody, tr, td {
+        border: 0 none !important;
+    }
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.tickets-list-table table {
+    thead, tbody, tr, td {
+        font-size: 0.9rem;
+    }
+
+    thead label {
+        font-size: 0.85em;
+    }
+
+    a,
+    a:hover,
+    a:visited {
+        color: #444;
+        text-decoration: none;
+    }
+}
+
+.tickets-rating {
+    margin: -0.5em;
+
+    .ui-rating-cancel {
+        display: none;
+    }
+
+    .ui-rating-star a {
+        background: none;
+        text-indent: 0;
+        height: auto;
+        font-size: 1.8em;
+        width: auto;
+    }
+
+    .ui-rating-star a:before {
+        content: "\2605";
+        color: #CCC;
+    }
+
+    .ui-rating-star.ui-rating-star-on a:before,
+    .ui-rating-star.ui-rating-star-on a:hover:before {
+        content: "\2605";
+        color: $mainColor100;
+    }
+}
+
+.tickets-rating-panel {
+    .tickets-rating {
+        width: max-content;
+    }
+    
+    .ui-outputlabel {
+        text-align: left;
+    }
+
+} 
+
+.tickets-accordance-panel, .fumo-panel {
+    .ui-panelgrid {
+        .ui-panelgrid-cell {
+            .ui-selectoneradio {
+                tr {
+                    display: flex;
+                    flex-direction: column;
+                    width: max-content;
+                }
+            }
+        }
+    }
+}
+
+.ui-panelgrid.fumo-panel {
+    .ui-panelgrid-cell {
+        .ui-selectoneradio {
+            tr {
+                display: flex;
+                flex-direction: column;
+                width: max-content;
+            }
+        }
+    }
+}
+
+.tickets-rating-edit .ui-rating-star.ui-rating-star a:hover:before {
+    content: "\2605";
+    color: $mainColor100;
+}
+
+.ticket-info-table .ticket-status {
+    color: $mainColor100
+}
+
+.ui-rating.center {
+    display: flex;
+    justify-content: center;
+}
+
+.select-other {
+    margin: 0 8px 0 3px;
+}
+
+.result-best-practices .value {
+    width: 100%;
+}
+
+.result-best-practices tr:first-child .value span {
+    width: 100%;
+}
+
+.result-best-practices tr:first-child .value span input {
+    width: 100%;
+}
+
+.result-best-practices tr:last-child .value .ql-container {
+    min-height: 100px;
+}
+
+.best-practice tbody tr td.value.ui-panelgrid-cell {
+    text-align: left;
+}
+
+.text-editor {
+    min-width: 180px;
+}
+
+.text-editor .ql-container {
+    min-height: 100px;
+    width: 100%;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    .ticket-view-main aside {
+        width: auto;
+    }
+    .ticket-view-main section {
+        padding-right: 3rem;
+        flex-basis: auto;
+        width: auto;
+        flex-shrink: 1;
+        flex-grow: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .ticket-view-main {
+        flex-direction: column;
+    }
+    .ticket-view-main aside {
+        align-self: center;
+    }
+    .ticket-view-main section {
+        order: 1;
+        width: 100%;
+        flex-shrink: 1;
+        flex-grow: 1;
+        padding-right: 0;
+    }
+}

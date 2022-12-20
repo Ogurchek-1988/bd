@@ -13,6 +13,8 @@ public class SuppliersServiceImpl implements SuppliersService {
     @Autowired
     private SuppliersRepository suppliersRepository;
 
+
+
     @Override
     public void save(Suppliers suppliers){
         suppliersRepository.save(suppliers);

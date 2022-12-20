@@ -8,33 +8,39 @@
         xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <h:form>
-        <p:dataTable
-                class="rc-table-large organizations-table" widgetVar="courseTable"
-                paginator="true" paginatorAlwaysVisible="false" rows="20" id="course-table"
-                paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport} {RowsPerPageDropdown}"
-                currentPageReportTemplate="{startRecord}-{endRecord} #{i18n['datatable.paginator.of']}  {totalRecords}"
-                rowsPerPageTemplate="10,20,30" lazy="true" emptyMessage="Записей не найдено">
+        <p:outputPanel class="accordion-outdiv" style="margin: 1em">
+            <p:accordionPanel multiple="true"  class="rc-accordion">
+                <p:tab title="Записи о поступлении"
+                       titleStyleClass="marks-accordion-title">
+                    <p:dataTable var="comming" value="#{managerBean.getAllComings()}"
+                                 class="rc-table-large organizations-table" widgetVar="courseTable"
+                                 paginator="true" paginatorAlwaysVisible="false" rows="20" id="comming-table"
+                                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport} {RowsPerPageDropdown}"
+                                 currentPageReportTemplate="{startRecord}-{endRecord} #{i18n['datatable.paginator.of']}  {totalRecords}"
+                                 rowsPerPageTemplate="10,20,30" lazy="true" emptyMessage="Записей не найдено">
 
-            <p:column headerText="Текст отзыва">
-                <h:outputText value="{feedback.text}" escape="false"/>
+                        <p:column headerText="Id записи">
+                            <h:outputText value="#{comming.id}"/>
+                        </p:column>
+                        <p:column headerText="Название товара">
+                            <h:outputText value="#{comming.productName}"/>
+                        </p:column>
+                        <p:column headerText="Кол-во">
+                            <h:outputText value="#{comming.count}"/>
+                        </p:column>
+                        <p:column headerText="Цена">
+                            <h:outputText value="#{comming.price}"/>
+                        </p:column>
+                        <p:column headerText="Действия">
+                            <h:commandLink action="#{managerBean.deleteComing(comming.id)}"
+                                           class="rc-action-link">
+                                Удалить запись
+                            </h:commandLink>
+                        </p:column>
 
-            </p:column>
-            <p:column headerText="Статус">
-                <h:outputText value="{i18n[feedback.status.getI18n()]}"/>
-            </p:column>
-            <p:column headerText="Дата" >
-                <h:outputText class="cfw-feedback-date" value="{feedback.ratedAt}">
-
-                </h:outputText>
-            </p:column>
-
-            <p:column headerText="Пользователь">
-                <h:outputText value="{i18n[feedback.status.getI18n()]}"/>
-
-            </p:column>
-            <p:column headerText="Действия">
-                <h:outputText value="{i18n[feedback.status.getI18n()]}"/>
-            </p:column>
-        </p:dataTable>
+                    </p:dataTable>
+                </p:tab>
+            </p:accordionPanel>
+        </p:outputPanel>
     </h:form>
 </ui:composition>

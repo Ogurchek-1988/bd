@@ -25,6 +25,9 @@ public class ProductsBean extends RestBean implements Serializable {
     private ProductsGroupsServiceImpl productsGroupsService;
     public String groupName;
     public String description;
+    public String productName;
+    public Integer price;
+    public Integer count;
 
     public ProductsBean(ProductsListServiceImpl productsListService,
                         ProductsGroupsServiceImpl productsGroupsService){

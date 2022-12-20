@@ -17,12 +17,12 @@
     width: 20em;">
          <h:outputText value="Введите название магазина" />
 
-         <p:inputText value="#{suppliersBean.sup_name}"/>
+         <p:inputText value="#{shopsBean.shopName}"/>
 
          <p:commandLink styleClass="rc-action-button rc-inverted-button rc-button-small"
                         id="save-btn"
                         value="Сохранить" update="@form" process="@form"
-                        action="#{suppliersBean.save(suppliersBean.sup_name)}"
+                        action="#{shopsBean.save(shopsBean.shopName)}"
                         oncomplete="window.location.reload()"/>
       </div>
    </h:form>

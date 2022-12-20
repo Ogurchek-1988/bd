@@ -27,7 +27,7 @@
 
 
             <h2>Работники склада</h2>
-            <p:dataTable var="worker" value="#{suppliersBean.all}"
+            <p:dataTable var="worker" value="#{workersBean.all}"
                          class="rc-table-large organizations-table" widgetVar="courseTable"
                          paginator="true" paginatorAlwaysVisible="false" rows="20" id="workers-table"
                          paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport} {RowsPerPageDropdown}"
@@ -41,7 +41,7 @@
                   <h:outputText value="#{worker.lastname}" />
                </p:column>
                <p:column headerText="Действия">
-                  <h:commandLink action="#{suppliersBean.delete(worker.id)}"
+                  <h:commandLink action="#{workersBean.delete(worker.id)}"
                                  class="rc-action-link">
                      Удалить работника
                   </h:commandLink>

@@ -45,6 +45,162 @@
     .ui-dialog .ui-dialog-titlebar{
         background-color: #63b175;;
     }
+    .accordion-outdiv {
+        background: #fff;
+        box-shadow: 0px 2px 2px rgba(0, 32, 51, 0.02), 0px 2px 8px rgba(0, 32, 51, 0.16);
+        border-radius: 16px;
+        border: 1px solid #D9D9D9;
+        margin-top: 2em;
+        padding: 0 1em;
+    }
+
+    .ui-accordion.rc-accordion {
+        .ui-accordion-header {
+            border: none;
+            box-shadow: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            margin-top: 0.75rem;
+            border-radius: 0;
+            padding-left: 1rem;
+
+            &.ui-tabs-outline{
+                outline: 0 none;
+            }
+
+            &.marks-accordion-title {
+                color: #3B4256;
+                font-size: 18px;
+                font-weight: 600;
+                margin-top: 0;
+                border: none;
+                padding: 0.2em 0.7em;
+                margin: 0.5em 0.3em;
+            }
+
+            .ui-icon {
+                order: 2;
+                width: auto;
+                height: auto;
+                position: initial;
+                left: 0;
+                top: 0;
+                margin-top: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-indent: initial;
+                background-image: none;
+                font-size: 25px;
+                margin-left: 1em;
+
+                &.ui-icon-triangle-1-e:after,
+                &.ui-icon-triangle-1-s:after {
+                    font-family: 'FontAwesome';
+                    /*color: $mainColor60;*/
+                    margin-left: 1rem;
+                }
+
+                &.ui-icon-triangle-1-e:after {
+                    content: "\f107";
+                    color: #0072EF;
+                    font-size: 16px;
+                }
+
+                &.ui-icon-triangle-1-e:before {
+                    content: "развернуть";
+                    color: #0072EF; //$menuIconsHoverColor;
+                    font-size: 16px;
+                }
+
+                &.ui-icon-triangle-1-s:after {
+                    content: "\f106";
+                    color: #0072EF;
+                    font-size: 16px;
+                }
+
+                &.ui-icon-triangle-1-s:before {
+                    content: "свернуть";
+                    color: #0072EF; //$menuIconsHoverColor;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .ui-accordion-content {
+            /*box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.05);*/
+            padding: 0;
+            box-shadow: none;
+            border: none;
+            margin-bottom: 0em;
+            border-radius: 0 0 8px 8px;
+
+            table {
+                border: 0;
+                padding-left: 2.2em;
+
+                .ui-widget-content {
+                    border: none;
+                }
+
+                th {
+                    text-align: left;
+                    background-color: #d0d0d0;
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: #3B4256;
+
+                    &.marks-title-column {
+                        padding-left: 1rem;
+                    }
+                }
+
+                td {
+                    padding-top: 0.7rem;
+                    padding-bottom: 0.7rem;
+                    border: none;
+                    border-bottom: 1px solid #e6e6e6;
+                }
+
+                tr:last-child {
+                    td {
+                        border-bottom: none;
+                    }
+                }
+
+                th, td {
+                    border-left: none;
+                    border-right: none;
+                }
+            }
+
+            .marks-title-column {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                padding-left: 1rem;
+            }
+        }
+    }
+    .first-accordion-outdiv{
+        background: #fff;
+        box-shadow: 0px 2px 2px rgba(0, 32, 51, 0.02), 0px 2px 8px rgba(0, 32, 51, 0.16);
+        border-radius: 16px;
+        border: 1px solid #D9D9D9;
+        margin-top: 2em;
+        padding: 0;
+    }
+    .accordion-outdiv{
+        background: #fff;
+        box-shadow: 0px 2px 2px rgba(0, 32, 51, 0.02), 0px 2px 8px rgba(0, 32, 51, 0.16);
+        border-radius: 8px;
+        border: 1px solid #D9D9D9;
+        margin: 1em;
+        padding: 0;
+    }
 
     .ui-widget-content {
         background: #FFFFFF;

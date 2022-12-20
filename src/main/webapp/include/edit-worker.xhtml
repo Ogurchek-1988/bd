@@ -17,12 +17,14 @@
     width: 20em;">
          <h:outputText value="Введите имя работника" />
 
-         <p:inputText value="#{suppliersBean.sup_name}"/>
+         <p:inputText value="#{workersBean.workerFirstname}"/>
+
+         <p:inputText value="#{workersBean.workerLastname}"/>
 
          <p:commandLink styleClass="rc-action-button rc-inverted-button rc-button-small"
                         id="save-btn"
                         value="Сохранить" update="@form" process="@form"
-                        action="#{suppliersBean.save(suppliersBean.sup_name)}"
+                        action="#{workersBean.save(workersBean.workerFirstname, workersBean.workerLastname )}"
                         oncomplete="window.location.reload()"/>
       </div>
    </h:form>

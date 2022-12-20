@@ -27,7 +27,7 @@
 
 
             <h2>Товары</h2>
-            <p:dataTable var="good" value="#{suppliersBean.all}"
+            <p:dataTable var="good" value="#{productsBean.allProduct}"
                          class="rc-table-large organizations-table" widgetVar="courseTable"
                          paginator="true" paginatorAlwaysVisible="false" rows="20" id="goods-table"
                          paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport} {RowsPerPageDropdown}"
@@ -43,15 +43,19 @@
                <p:column headerText="Кол-во">
                   <h:outputText value="#{good.count}" />
                </p:column>
+
+               <ui:remove>
                <p:column headerText="Группа">
-                  <h:outputText value="#{good.group}" />
+                  <h:outputText value="#{good.groupId}" />
                   <h:commandLink onclick="PF('changeGroup').show();"
                                  class="rc-action-link">
                      Изменить группу
                   </h:commandLink>
                </p:column>
+               </ui:remove>
+
                <p:column headerText="Действия">
-                  <h:commandLink action="#{suppliersBean.delete(good.id)}"
+                  <h:commandLink action="#{productsBean.deleteProduct(good.id)}"
                                  class="rc-action-link">
                      Удалить товар
                   </h:commandLink>

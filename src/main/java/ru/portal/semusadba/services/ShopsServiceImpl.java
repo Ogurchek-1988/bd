@@ -1,12 +1,14 @@
 package ru.portal.semusadba.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.portal.semusadba.model.entity.Shops;
 import ru.portal.semusadba.model.entity.Suppliers;
 import ru.portal.semusadba.model.repository.ShopsRepository;
 
 import java.util.List;
 
+@Service
 public class ShopsServiceImpl implements ShopsService{
     @Autowired
     private ShopsRepository shopsRepository;

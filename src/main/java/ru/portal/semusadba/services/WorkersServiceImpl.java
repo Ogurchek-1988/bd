@@ -1,12 +1,14 @@
 package ru.portal.semusadba.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import ru.portal.semusadba.model.entity.Suppliers;
 import ru.portal.semusadba.model.entity.Workers;
 import ru.portal.semusadba.model.repository.WorkersRepository;
 
 import java.util.List;
 
+@Service
 public class WorkersServiceImpl implements WorkersService{
     @Autowired
     private WorkersRepository workersRepository;

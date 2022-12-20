@@ -17,14 +17,14 @@
     width: 20em;">
             <h:outputText value="Введите название товара" />
 
-            <p:inputText value="#{suppliersBean.name}"/>
-            <p:inputText value="#{suppliersBean.price}"/>
-            <p:inputText value="#{suppliersBean.count}"/>
+            <p:inputText value="#{productsBean.productName}"/>
+            <p:inputText value="#{productsBean.price}"/>
+            <p:inputText value="#{productsBean.count}"/>
 
             <p:commandLink styleClass="rc-action-button rc-inverted-button rc-button-small"
                            id="save-btn"
                            value="Сохранить" update="@form" process="@form"
-                           action="#{suppliersBean.save(suppliersBean.sup_name)}"
+                           action="#{productsBean.saveProduct(productsBean.productName, productsBean.groupId, productsBean.price, productsBean.count)}"
                            oncomplete="window.location.reload()"/>
         </div>
     </h:form>

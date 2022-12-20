@@ -22,7 +22,38 @@
 
    <ui:define name="content">
 
+      <div class="content">
+         <h:form>
 
+
+            <h2>Магазины</h2>
+            <p:dataTable var="shop" value="#{suppliersBean.all}"
+                         class="rc-table-large organizations-table" widgetVar="courseTable"
+                         paginator="true" paginatorAlwaysVisible="false" rows="20" id="shops-table"
+                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport} {RowsPerPageDropdown}"
+                         currentPageReportTemplate="{startRecord}-{endRecord} #{i18n['datatable.paginator.of']}  {totalRecords}"
+                         rowsPerPageTemplate="10,20,30" lazy="true" emptyMessage="Записей не найдено">
+
+               <p:column headerText="Название магазина">
+                  <h:outputText value="#{shop.name}" escape="false"/>
+               </p:column>
+               <p:column headerText="Действия">
+                  <h:commandLink action="#{suppliersBean.delete(shop.id)}"
+                                 class="rc-action-link">
+                     Удалить магазин
+                  </h:commandLink>
+               </p:column>
+
+            </p:dataTable>
+            <div>
+
+               <p:commandButton id="select-role-btn" onclick="PF('addShop').show();"
+                                styleClass="rc-action-button rc-inverted-button rc-button-small mr-2"
+                                value="Добавить магазин"/>
+
+            </div>
+         </h:form>
+      </div>
 
    </ui:define>
 

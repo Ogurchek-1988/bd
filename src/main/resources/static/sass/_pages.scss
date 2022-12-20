@@ -30,10 +30,10 @@
         &.ui-dialog {
             position: fixed;
             top: 5% !important;
-            width: 70% !important;
-            left: 15% !important;
-            height: 90% !important;
+            width: fit-content;
+            height: fit-content;
             overflow-y: auto;
+            padding-bottom: 1em;
         }
 
         &.ui-dialog.confirm-dialog {
@@ -41,6 +41,9 @@
             height: auto !important;
             left: calc(50% - 250px) !important;
         }
+    }
+    .ui-dialog .ui-dialog-titlebar{
+        background-color: #63b175;;
     }
 
     .ui-widget-content {

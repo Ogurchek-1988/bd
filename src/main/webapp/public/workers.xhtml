@@ -22,7 +22,41 @@
 
    <ui:define name="content">
 
+      <div class="content">
+         <h:form>
 
+
+            <h2>Работники склада</h2>
+            <p:dataTable var="worker" value="#{suppliersBean.all}"
+                         class="rc-table-large organizations-table" widgetVar="courseTable"
+                         paginator="true" paginatorAlwaysVisible="false" rows="20" id="workers-table"
+                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport} {RowsPerPageDropdown}"
+                         currentPageReportTemplate="{startRecord}-{endRecord} #{i18n['datatable.paginator.of']}  {totalRecords}"
+                         rowsPerPageTemplate="10,20,30" lazy="true" emptyMessage="Записей не найдено">
+
+               <p:column headerText="Имя">
+                  <h:outputText value="#{worker.firstname}" />
+               </p:column>
+               <p:column headerText="Фамилия">
+                  <h:outputText value="#{worker.lastname}" />
+               </p:column>
+               <p:column headerText="Действия">
+                  <h:commandLink action="#{suppliersBean.delete(worker.id)}"
+                                 class="rc-action-link">
+                     Удалить работника
+                  </h:commandLink>
+               </p:column>
+
+            </p:dataTable>
+            <div>
+
+               <p:commandButton id="select-role-btn" onclick="PF('addWorker').show();"
+                                styleClass="rc-action-button rc-inverted-button rc-button-small mr-2"
+                                value="Добавить работника"/>
+
+            </div>
+         </h:form>
+      </div>
 
    </ui:define>
 

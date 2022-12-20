@@ -12,18 +12,18 @@
 
 
       <h:form>
-          <h2>Добавить работника</h2>
           <div style="display: flex;
     flex-direction: column;
     width: 20em;">
-              <h:outputText value="Введите имя работника" />
+              <h:outputText value="Введите имя поставщика" />
 
               <p:inputText value="#{suppliersBean.sup_name}"/>
 
-         <p:commandLink styleClass="rc-action-button rc-inverted-button rc-button-small"
-                        id="save-btn"
-                        value="Сохранить" update="course-table" process="@form"
-                        action="#{suppliersBean.save(suppliersBean.sup_name)}"/>
+              <p:commandLink styleClass="rc-action-button rc-inverted-button rc-button-small"
+                             id="save-btn"
+                             value="Сохранить" update="@form" process="@form"
+                             action="#{suppliersBean.save(suppliersBean.sup_name)}"
+                             oncomplete="window.location.reload()"/>
           </div>
       </h:form>
 

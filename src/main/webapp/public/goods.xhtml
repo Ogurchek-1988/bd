@@ -22,7 +22,54 @@
 
    <ui:define name="content">
 
+      <div class="content">
+         <h:form>
 
+
+            <h2>Товары</h2>
+            <p:dataTable var="good" value="#{suppliersBean.all}"
+                         class="rc-table-large organizations-table" widgetVar="courseTable"
+                         paginator="true" paginatorAlwaysVisible="false" rows="20" id="goods-table"
+                         paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport} {RowsPerPageDropdown}"
+                         currentPageReportTemplate="{startRecord}-{endRecord} #{i18n['datatable.paginator.of']}  {totalRecords}"
+                         rowsPerPageTemplate="10,20,30" lazy="true" emptyMessage="Записей не найдено">
+
+               <p:column headerText="Название">
+                  <h:outputText value="#{good.name}" />
+               </p:column>
+               <p:column headerText="Цена">
+                  <h:outputText value="#{good.price}" />
+               </p:column>
+               <p:column headerText="Кол-во">
+                  <h:outputText value="#{good.count}" />
+               </p:column>
+               <p:column headerText="Группа">
+                  <h:outputText value="#{good.group}" />
+                  <h:commandLink onclick="PF('changeGroup').show();"
+                                 class="rc-action-link">
+                     Изменить группу
+                  </h:commandLink>
+               </p:column>
+               <p:column headerText="Действия">
+                  <h:commandLink action="#{suppliersBean.delete(good.id)}"
+                                 class="rc-action-link">
+                     Удалить товар
+                  </h:commandLink>
+               </p:column>
+
+            </p:dataTable>
+            <div>
+
+               <p:commandButton id="select-role-btn" onclick="PF('addGood').show();"
+                                styleClass="rc-action-button rc-inverted-button rc-button-small mr-2"
+                                value="Добавить товар"/>
+               <p:commandButton id="select-group-btn" onclick="PF('addGroup').show();"
+                                styleClass="rc-action-button rc-inverted-button rc-button-small mr-2"
+                                value="Добавить группу товаров"/>
+
+            </div>
+         </h:form>
+      </div>
 
    </ui:define>
 

@@ -76,6 +76,32 @@
             <img src="/images/ajax-loader.gif"/>
         </p:dialog>
 
+        <p:dialog id="add-supplier-dialog" widgetVar="addSupplier" modal="true"
+                  draggable="false" resizable="false" header="Добавить поставщика" >
+            <ui:include src="/include/edit-sup.xhtml"/>
+        </p:dialog>
+        <p:dialog id="add-worker-dialog" widgetVar="addWorker" modal="true"
+                  draggable="false" resizable="false" header="Добавить работника" >
+            <ui:include src="/include/edit-worker.xhtml"/>
+        </p:dialog>
+        <p:dialog id="add-shop-dialog" widgetVar="addShop" modal="true"
+                  draggable="false" resizable="false" header="Добавить магазин" >
+            <ui:include src="/include/edit-shop.xhtml"/>
+        </p:dialog>
+        <p:dialog id="add-goods-dialog" widgetVar="addGood" modal="true"
+                  draggable="false" resizable="false" header="Добавить магазин" >
+            <ui:include src="/include/edit-goods.xhtml"/>
+        </p:dialog>
+        <p:dialog id="change-group-dialog" widgetVar="changeGroup" modal="true"
+                  draggable="false" resizable="false" header="Изменить группу товара" >
+            <ui:include src="/include/change-group.xhtml"/>
+        </p:dialog>
+        <p:dialog id="add-group-dialog" widgetVar="addGroup" modal="true"
+                  draggable="false" resizable="false" header="Добавить группу товаров" >
+            <ui:include src="/include/edit-group.xhtml"/>
+        </p:dialog>
+
+
         <script type='text/javascript'>
             let bvi = {
                 "BviPanel": "1", "BviThemes": "1",

@@ -32,16 +32,8 @@ public class SuppliersBean extends RestBean implements Serializable {
         suppliersService.delete(id);
     }
 
-
-
-
-
     public void save(String name) {
         Suppliers newSup = new Suppliers(name);
         suppliersService.save(newSup);
     }
-
-
-
-
 }

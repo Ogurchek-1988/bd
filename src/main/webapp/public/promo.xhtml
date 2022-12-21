@@ -32,15 +32,21 @@
 </script>
   <ui:define name="content">
     <div id="storage">
-      <a href="/public/history.xhtml">
+      <a>
         <picture>
-          <img src="/images/semusadba/storage.png" alt="#{i18n['portal.title']}" style="height: 10em;"/>
+          <img src="/images/semusadba/storage.png" alt="#{i18n['portal.title']}" style="height: 15em;" onclick="PF('defaultRoleSelector').show();"/>
         </picture>
       </a>
     </div>
-    <p:commandButton id="select-role-btn" onclick="PF('defaultRoleSelector').show();"
-                     styleClass="rc-action-button rc-inverted-button rc-button-small mr-2"
-                     value="${i18n['student.profile.default-module-settings.select-role']}"/>
+
+    <div id="shop">
+      <a>
+        <picture>
+          <img src="/images/semusadba/shop.png" alt="#{i18n['portal.title']}" style="height: 10em;"/>
+        </picture>
+      </a>
+    </div>
+
   </ui:define>
 
 

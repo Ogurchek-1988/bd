@@ -27,7 +27,7 @@
 
 
             <h2>Товары</h2>
-            <p:dataTable var="good" value="#{productsBean.allProduct}"
+            <p:dataTable var="good" value="#{productsBean.getAllLocalProducts(productsBean.getAllProduct(), productsBean.getAllProductsGroups())}"
                          class="rc-table-large organizations-table" widgetVar="courseTable"
                          paginator="true" paginatorAlwaysVisible="false" rows="20" id="goods-table"
                          paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport} {RowsPerPageDropdown}"
@@ -37,28 +37,29 @@
                <p:column headerText="Название">
                   <h:outputText value="#{good.name}" />
                </p:column>
-               <p:column headerText="Цена">
-                  <h:outputText value="#{good.price}" />
-               </p:column>
                <p:column headerText="Кол-во">
                   <h:outputText value="#{good.count}" />
                </p:column>
-
-               <ui:remove>
-               <p:column headerText="Группа">
-                  <h:outputText value="#{good.groupId}" />
-                  <h:commandLink onclick="PF('changeGroup').show();"
-                                 class="rc-action-link">
-                     Изменить группу
-                  </h:commandLink>
+               <p:column headerText="Цена">
+                  <h:outputText value="#{good.price}" />
                </p:column>
-               </ui:remove>
+
+               <p:column headerText="Группа товаров">
+                  <h:outputText value="#{good.groupName}" />
+
+               </p:column>
 
                <p:column headerText="Действия">
+                  <div style="display: flex; flex-direction: column;">
                   <h:commandLink action="#{productsBean.deleteProduct(good.id)}"
                                  class="rc-action-link">
                      Удалить товар
                   </h:commandLink>
+                  <h:commandLink onclick="PF('changeGroup').show();"
+                                 class="rc-action-link">
+                     Изменить группу
+                  </h:commandLink>
+                  </div>
                </p:column>
 
             </p:dataTable>

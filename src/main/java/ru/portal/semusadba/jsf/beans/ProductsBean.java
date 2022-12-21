@@ -28,6 +28,7 @@ public class ProductsBean extends RestBean implements Serializable {
     public String productName;
     public Integer price;
     public Integer count;
+    public Long groupId;
 
     public ProductsBean(ProductsListServiceImpl productsListService,
                         ProductsGroupsServiceImpl productsGroupsService){
@@ -67,12 +68,12 @@ public class ProductsBean extends RestBean implements Serializable {
         ProductsListLocal productsListLocal;
         for (ProductsList product: productsLists){
             for (ProductsGroups group: productsGroups){
-                if (product.getId() == group.getId()){
+                if (product.getGroupId() == group.getId()){
                     name = group.getGroupName();
                     break;
                 }
             }
-            productsListLocal = new ProductsListLocal(product.getName(), name, product.getPrice(), product.getCount());
+            productsListLocal = new ProductsListLocal(product.getId(), product.getName(), name, product.getPrice(), product.getCount());
             result.add(productsListLocal);
         }
         return result;
@@ -82,6 +83,7 @@ public class ProductsBean extends RestBean implements Serializable {
     @AllArgsConstructor
     @NoArgsConstructor
     public class ProductsListLocal {
+        private Long id;
         private String name;
         private String groupName;
         private int price;

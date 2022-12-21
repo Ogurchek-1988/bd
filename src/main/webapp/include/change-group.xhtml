@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
-</html>
+
+<!DOCTYPE html>
+
+<ui:composition
+        xmlns="http://www.w3c.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+
+
+    <h:form>
+        <div style="display: flex;
+    flex-direction: column;
+    width: 20em;">
+            <h:outputText value="Введите название товара" />
+
+            <p:inputText value="#{productsBean.productName}"/>
+            <p:inputText value="#{productsBean.price}"/>
+            <p:inputText value="#{productsBean.count}"/>
+
+            <p:selectOneMenu id="group-select" value="#{productsBean.groupId}">
+                <f:selectItem itemValue="#{null}" itemLabel="Выберите группу"/>
+                <f:selectItems var="group" value="#{productsBean.getAllProductsGroups()}" itemValue="#{group.id}"
+                               itemLabel="#{group.groupName}"/>
+            </p:selectOneMenu>
+
+            <p:commandLink styleClass="rc-action-button rc-inverted-button rc-button-small"
+                           id="save-btn"
+                           value="Сохранить" update="@form" process="@form"
+                           action="#{productsBean.saveProduct(productsBean.productName, productsBean.groupId, productsBean.price, productsBean.count)}"
+                           oncomplete="window.location.reload()"/>
+        </div>
+    </h:form>
+
+
+
+
+</ui:composition>

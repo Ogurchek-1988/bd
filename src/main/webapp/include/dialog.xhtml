@@ -12,7 +12,7 @@
             <p:accordionPanel multiple="true"  class="rc-accordion">
                 <p:tab title="Записи о поступлении"
                        titleStyleClass="marks-accordion-title">
-                    <p:dataTable var="comming" value="#{managerBean.getAllComings()}"
+                    <p:dataTable var="comming" value="#{managerBean.getAllComings()}" style="margin: 0"
                                  class="rc-table-large organizations-table" widgetVar="courseTable"
                                  paginator="true" paginatorAlwaysVisible="false" rows="20" id="comming-table"
                                  paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport} {RowsPerPageDropdown}"
@@ -33,6 +33,76 @@
                         </p:column>
                         <p:column headerText="Действия">
                             <h:commandLink action="#{managerBean.deleteComing(comming.id)}"
+                                           class="rc-action-link">
+                                Удалить запись
+                            </h:commandLink>
+                        </p:column>
+
+                    </p:dataTable>
+                </p:tab>
+            </p:accordionPanel>
+        </p:outputPanel>
+
+        <p:outputPanel class="accordion-outdiv" style="margin: 1em">
+            <p:accordionPanel multiple="true"  class="rc-accordion">
+                <p:tab title="Записи об отправлении"
+                       titleStyleClass="marks-accordion-title">
+                    <p:dataTable var="despatch" value="#{managerBean.getAllDespatchs()}" style="margin: 0"
+                                 class="rc-table-large organizations-table" widgetVar="courseTable"
+                                 paginator="true" paginatorAlwaysVisible="false" rows="20" id="despatch-table"
+                                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport} {RowsPerPageDropdown}"
+                                 currentPageReportTemplate="{startRecord}-{endRecord} #{i18n['datatable.paginator.of']}  {totalRecords}"
+                                 rowsPerPageTemplate="10,20,30" lazy="true" emptyMessage="Записей не найдено">
+
+                        <p:column headerText="Id записи">
+                            <h:outputText value="#{despatch.id}"/>
+                        </p:column>
+                        <p:column headerText="Название товара">
+                            <h:outputText value="#{despatch.productName}"/>
+                        </p:column>
+                        <p:column headerText="Кол-во">
+                            <h:outputText value="#{despatch.count}"/>
+                        </p:column>
+                        <p:column headerText="Цена">
+                            <h:outputText value="#{despatch.price}"/>
+                        </p:column>
+                        <p:column headerText="Действия">
+                            <h:commandLink action="#{managerBean.deleteDespatch(despatch.id)}"
+                                           class="rc-action-link">
+                                Удалить запись
+                            </h:commandLink>
+                        </p:column>
+
+                    </p:dataTable>
+                </p:tab>
+            </p:accordionPanel>
+        </p:outputPanel>
+
+        <p:outputPanel class="accordion-outdiv" style="margin: 1em">
+            <p:accordionPanel multiple="true"  class="rc-accordion">
+                <p:tab title="Записи о возврате"
+                       titleStyleClass="marks-accordion-title">
+                    <p:dataTable var="returns" value="#{managerBean.getAllReturns()}" style="margin: 0"
+                                 class="rc-table-large organizations-table" widgetVar="courseTable"
+                                 paginator="true" paginatorAlwaysVisible="false" rows="20" id="returns-table"
+                                 paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {CurrentPageReport} {RowsPerPageDropdown}"
+                                 currentPageReportTemplate="{startRecord}-{endRecord} #{i18n['datatable.paginator.of']}  {totalRecords}"
+                                 rowsPerPageTemplate="10,20,30" lazy="true" emptyMessage="Записей не найдено">
+
+                        <p:column headerText="Id записи">
+                            <h:outputText value="#{returns.id}"/>
+                        </p:column>
+                        <p:column headerText="Название товара">
+                            <h:outputText value="#{returns.productName}"/>
+                        </p:column>
+                        <p:column headerText="Кол-во">
+                            <h:outputText value="#{returns.count}"/>
+                        </p:column>
+                        <p:column headerText="Цена">
+                            <h:outputText value="#{returns.price}"/>
+                        </p:column>
+                        <p:column headerText="Действия">
+                            <h:commandLink action="#{managerBean.deleteReturns(returns.id)}"
                                            class="rc-action-link">
                                 Удалить запись
                             </h:commandLink>

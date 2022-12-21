@@ -17,12 +17,13 @@
     width: 20em;">
             <h:outputText value="Введите название группы" />
 
-            <p:inputText value="#{suppliersBean.supName}"/>
+            <p:inputText value="#{productsBean.groupName}"/>
+            <p:inputText value="#{productsBean.description}"/>
 
             <p:commandLink styleClass="rc-action-button rc-inverted-button rc-button-small"
                            id="save-btn"
                            value="Сохранить" update="@form" process="@form"
-                           action="#{suppliersBean.save(suppliersBean.supName)}"
+                           action="#{productsBean.saveProductGroup(productsBean.groupName, productsBean.description)}"
                            oncomplete="window.location.reload()"/>
         </div>
     </h:form>

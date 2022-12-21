@@ -21,6 +21,12 @@
             <p:inputText value="#{productsBean.price}"/>
             <p:inputText value="#{productsBean.count}"/>
 
+            <p:selectOneMenu id="group-select" value="#{productsBean.groupId}">
+                <f:selectItem itemValue="#{null}" itemLabel="Выберите группу"/>
+                <f:selectItems var="group" value="#{productsBean.getAllProductsGroups()}" itemValue="#{group.id}"
+                               itemLabel="#{group.groupName}"/>
+            </p:selectOneMenu>
+
             <p:commandLink styleClass="rc-action-button rc-inverted-button rc-button-small"
                            id="save-btn"
                            value="Сохранить" update="@form" process="@form"

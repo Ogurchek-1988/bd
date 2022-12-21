@@ -1,7 +1,6 @@
 package ru.portal.semusadba.jsf.beans;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
@@ -12,6 +11,7 @@ import ru.portal.semusadba.services.ProductsGroupsServiceImpl;
 import ru.portal.semusadba.services.ProductsListServiceImpl;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -59,5 +59,32 @@ public class ProductsBean extends RestBean implements Serializable {
     public void saveProductGroup(String name, String description) {
         ProductsGroups newGroup = new ProductsGroups(name, description);
         productsGroupsService.save(newGroup);
+    }
+
+    public List<ProductsListLocal> getAllLocalProducts(List<ProductsList> productsLists, List<ProductsGroups> productsGroups){
+        List<ProductsListLocal> result = new ArrayList<>();
+        String name = null;
+        ProductsListLocal productsListLocal;
+        for (ProductsList product: productsLists){
+            for (ProductsGroups group: productsGroups){
+                if (product.getId() == group.getId()){
+                    name = group.getGroupName();
+                    break;
+                }
+            }
+            productsListLocal = new ProductsListLocal(product.getName(), name, product.getPrice(), product.getCount());
+            result.add(productsListLocal);
+        }
+        return result;
+    }
+
+    @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public class ProductsListLocal {
+        private String name;
+        private String groupName;
+        private int price;
+        private int count;
     }
 }

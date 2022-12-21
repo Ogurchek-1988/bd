@@ -57,6 +57,10 @@ public class ProductsBean extends RestBean implements Serializable {
         productsListService.save(newProduct);
     }
 
+    public void saveProductV2(ProductsList productsList){
+        productsListService.save(productsList);
+    }
+
     public void saveProductGroup(String name, String description) {
         ProductsGroups newGroup = new ProductsGroups(name, description);
         productsGroupsService.save(newGroup);
